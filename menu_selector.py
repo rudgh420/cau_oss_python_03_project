@@ -1,4 +1,9 @@
+import parking_spot_manager
+import file_manager
+
 def start_process(path):
+    input_list = file_manager.read_file(path)     # file_manager로 input_list를 생성 후  
+    spots = parking_spot_manager.str_list_to_class_list(input_list)   #input_list를 parking_spot 클래스 객체로 변환
     while True:
         print("---menu---")
         print("[1] print")
@@ -7,8 +12,8 @@ def start_process(path):
         print("[4] exit")
         select = int(input('type:'))
         if select == 1:
-            print("not implemented yet")
-            # fill this block
+           parking_spot_manager.print_spots(spots)    #print_spots 호출
+           
         elif select == 2:
             print("---filter by---")
             print("[1] name")
@@ -51,8 +56,9 @@ def start_process(path):
                 print("not implemented yet")
                 # fill this block
             else: print("invalid input")
-        elif select == 4:
-            print("not implemented yet")
-            # fill this block
+        elif select == 4:                       #4번 메뉴 선택시 Exit 출력 후 프로그램 종료
+            print("Exit")
+            break
+            
         else:
             print("invalid input")
