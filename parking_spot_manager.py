@@ -62,7 +62,10 @@ def filter_by_location(spots, locations):
     result = [data for data in spots if min_lat < float(data.get('latitude')) < max_lat and min_long < float(data.get('longitude')) < max_long] 
     return result         # string 인 data.get() 값을 실수형으로 바꿔줌.
 
-
+def sort_by_keyword(spots, keyword):       # spots 와 keyword를 매개변수로 받는 sort 함수. 
+    result = sorted(spots, key = lambda data: data.get(keyword))        # 정렬의 기준이 되는 key값은 lambda 기능사용
+    return result
+    
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 if __name__ == '__main__':
     print("Testing the module...")

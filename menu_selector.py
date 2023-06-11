@@ -48,10 +48,9 @@ def start_process(path):
             print("---sort by---")
             print(keywords)
             keyword = input('type keyword:')
-            if keyword in keywords:
-                print("not implemented yet")
-                # fill this block
-            else: print("invalid input")
+            if keyword in keywords:             #일치 목록 존재하면 sort 함수 호출. 기존 객체 삭제와 동시에 생성
+                spots = parking_spot_manager.sort_by_keyword(spots, keyword)               
+            else: print("invalid input")        #일치 목록 없을 시 invalid input 출력
         elif select == 4:                       #4번 메뉴 선택시 Exit 출력 후 프로그램 종료
             print("Exit")
             break
